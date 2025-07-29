@@ -1,6 +1,6 @@
 # 📘 CP-31 – Competitive Programming Practice
 
-This repository contains 31 competitive programming (CP) questions solved using **C++**.  
+This repository contains competitive programming (CP) questions solved using **C++**.  
 It is created for **my personal practice**, **future reference**, and to **showcase my work**.
 
 ## 🧠 Topics Covered
