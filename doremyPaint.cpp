@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<map>
 using namespace std;
 int main(){
     int t;
@@ -7,47 +8,34 @@ int main(){
     while(t--){
         int n;
         cin>>n;
-        vector<int>arr(n);
-        int maxval=0;
-        int total=0;
+        vector<int>arr;
         for(int i=0;i<n;i++){
-            cin>>arr[i];
-            total+=arr[i];
-            maxval=max(maxval,arr[i]);
+            int data;
+            cin>>data;
+            arr.push_back(data);
+            
         }
-        if(n==2 || maxval <= total-maxval){
-            cout<<"Yes"<<endl;
-        }else{
+        map<int,int>m;
+        for(int i=0;i<n;i++){
+            m[arr[i]]++;
+        }
+
+        if(m.size() >= 3){
             cout<<"No"<<endl;
+        }else{
+            int f1=m.begin()->second;
+            int f2=m.rbegin()->second;
+
+            if(f1==f2){
+                cout<<"Yes"<<endl;
+            }
+            else if( n%2 == 1 && abs(f1 -f2) == 1){
+                cout<<"Yes"<<endl;
+            }
+            else{
+                cout<<"No"<<endl;
+            }
         }
-
-        // int start=0;
-        // int end=0;
-
-        // vector<int>brr(n);
-        // vector<int>crr(n);
-        // for(int i=0;i<n;i++){
-        //     start=start+arr[i];
-        //     brr[i]=start;
-        // }
-        // for(int i=0;i<n;i++){
-        //     end=end+arr[n-i-1];
-        //     crr[i]=end;
-        // }
-
-        // bool flag=true;
-        // for(int i=0;i<n;i++){
-        //     if(brr[i]!=crr[n-i-1]){
-        //         flag=false;
-        //         break;
-        //     }
-        // }
-        // if(flag){
-        //     cout<<"Yes"<<endl;
-        // }else{
-        //     cout<<"No"<<endl;
-        // }
-
 
     }
     return 0;
